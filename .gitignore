@@ -32,3 +32,18 @@ dist-ssr
 *.sln
 *.sw?
  5c90214ccbbab2c3b58fda16e97fea1c957bfdce
+
+
+# Dependency
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Credentials (SANGAT PENTING)
+.env
+server/.env
+
+# Build files
+dist/
+client/dist/
+
