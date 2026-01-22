@@ -92,7 +92,7 @@ export default function App() {
 
     try {
       // Pastikan port (5000) sesuai dengan yang ada di server/index.js Anda
-      const response = await fetch('https://afsalportofoliopro-ttxl2d40.b4a.run/api/contact', {
+      const response = await fetch('https://afsalportofoliopro-x6vs7069.b4a.run/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -495,7 +495,7 @@ return (
             className="mt-48 pt-20 border-t border-white/10 flex flex-col items-center"
           >
             <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.5em] mb-10 text-center italic">
-              Ingin melihat arsitektur kode lainnya?
+              Ingin melihat arsitektur kode lainnya??
             </p>
             <a 
               href="https://github.com/afsalprimamaula" 
