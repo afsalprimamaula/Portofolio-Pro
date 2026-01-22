@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { Resend } = require('resend'); // Ganti nodemailer ke resend
+const { Resend } = require('resend'); 
 require('dotenv').config();
 
 const app = express();
@@ -18,10 +18,10 @@ app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // 2. Kirim Email via Resend API
-    const data = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Gunakan ini untuk testing awal
-      to: 'afsalprimaamaulaa@gmail.com', // Email tujuan Anda
+    // 2. Kirim Email dan tangkap objek data serta error-nya secara terpisah
+    const { data, error } = await resend.emails.send({
+      from: 'onboarding@resend.dev', 
+      to: 'afsalprimaamaulaa@gmail.com', 
       subject: `New Portfolio Message from ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
@@ -35,10 +35,19 @@ app.post('/api/contact', async (req, res) => {
       `,
     });
 
-    console.log("Email sent successfully:", data);
+    // 3. Cek apakah ada error dari sisi API Resend
+    if (error) {
+      console.error("Resend API Error Detail:", error);
+      return res.status(400).json({ success: false, message: "Resend API Error", error });
+    }
+
+    // 4. Jika berhasil, log ID pengirimannya
+    console.log("Email sent successfully, ID:", data.id);
     res.status(200).json({ success: true, message: "Email Sent Successfully!" });
+
   } catch (error) {
-    console.error("Resend Error:", error);
+    // Menangkap error koneksi atau server internal
+    console.error("Server Catch Error:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 });
