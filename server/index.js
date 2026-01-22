@@ -21,7 +21,7 @@ app.post('/api/contact', async (req, res) => {
     // 2. Kirim Email dan tangkap objek data serta error-nya secara terpisah
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev', 
-      to: 'afsalprimaamaulaa@gmail.com', 
+      to: 'afsalprimamaulaaa@gmail.com', 
       subject: `New Portfolio Message from ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
