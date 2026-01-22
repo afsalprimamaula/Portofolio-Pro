@@ -10,6 +10,10 @@ app.use(express.json());
 // 1. Inisialisasi Resend dengan API Key dari .env
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+app.get('/', (req, res) => {
+  res.send('Server Portfolio Afsal sudah aktif!');
+});
+
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
