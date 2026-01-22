@@ -92,7 +92,7 @@ export default function App() {
 
     try {
       // Pastikan port (5000) sesuai dengan yang ada di server/index.js Anda
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://afsalportofoliopro-ttxl2d40.b4a.run/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
